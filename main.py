@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
+import seaborn
 
 # get our initial data
 data = yf.download("AAPL", start="2018-01-01", end = "2024-01-01")
@@ -90,5 +91,10 @@ nx.draw_networkx_edges(gr, pos, edgelist=gr.edges())
 nx.draw_networkx_edge_labels(gr, pos, edge_vals)
 plt.show()
 
-print("")
+# do a simulation!
+pydtmc.plot_sequence(mkc, 100)
+plt.show()
 
+# seaborn heatmap
+seaborn.heatmap(transition_matrix, annot=True)
+plt.show()
